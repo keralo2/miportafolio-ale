@@ -59,7 +59,13 @@ export default function Portfolio() {
 
     <main>
       <section className="hero" id="inicio"><div className="hero-inner">
-        <div className="portrait"><span className="portrait-monogram">KA</span><small>Espacio para agregar mi fotografía</small></div>
+        <div className="portrait">
+      <img
+      src="/foto-keyli.jpg"
+      alt="Fotografía de Keyli"
+      className="portrait-photo"
+      />
+      </div>
         <div className="hero-copy"><span className="eyebrow">PORTAFOLIO DIGITAL · 2026</span><h1>Keyli Alejandra<br/>Arévalo Paz</h1><p className="tagline">Mi historia, mis aprendizajes y mis metas</p><p className="intro">Bienvenido/a a mi portafolio digital, un espacio donde comparto mi camino académico, mis proyectos y los sueños que me impulsan a seguir aprendiendo. ♡</p><a className="primary-button" href="#sobre-mi">Conoce más　↓</a></div>
         <div className="hero-decoration" aria-hidden="true">✦　♡　✧</div>
       </div></section>
