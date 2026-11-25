@@ -547,3 +547,27 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   }
   .maze-modal .maze-board{width:min(100%, calc(100vw - 42px), 480px)}
 }
+
+
+/* Restaurar la información del proyecto también en Snoopy Maze */
+.maze-modal{
+  height:auto;
+  min-height:0;
+  max-height:90vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.maze-modal > .project-info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:16px 0;
+}
+.maze-modal > .tools,
+.maze-modal > .modal-footnote{display:block}
+.maze-modal > .maze-demo{flex:0 0 auto;overflow:visible}
+@media(max-width:700px){
+  .maze-modal{height:auto;min-height:100dvh;max-height:none;overflow:visible}
+  .maze-modal > .project-info-grid{grid-template-columns:1fr}
+  .maze-modal > .maze-demo{flex:0 0 auto;overflow:visible}
+}
