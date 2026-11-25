@@ -128,7 +128,7 @@ export default function Portfolio() {
     <header className="site-header"><div className="nav-wrap">
       <a className="brand" href="#inicio">♡ Mi Portafolio Digital</a>
       <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Abrir menú">☰</button>
-      <nav className={menuOpen?"nav-links open":"nav-links"}>{[["Inicio","#inicio"],["Sobre mí","#sobre-mi"],["Formación","#formacion"],["Experiencia","#experiencia"],["Proyectos","#proyectos"],["Contacto","#contacto"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}</nav>
+      <nav className={menuOpen?"nav-links open":"nav-links"}>{[["Inicio","#inicio"],["Sobre mí","#sobre-mi"],["Formación","#formacion"],["Experiencia","#experiencia"],["Proyectos","#proyectos"],["Compartir","#compartir"],["Contacto","#contacto"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}</nav>
     </div></header>
 
     <main>
