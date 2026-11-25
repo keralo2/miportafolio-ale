@@ -138,14 +138,15 @@ export default function MazeDemo() {
     const remaining = cookies.filter((cookie) => !same(cookie, next));
     if (remaining.length !== cookies.length) {
       setCookies(remaining);
-      setMessage("¡Encontraste una galleta! 🍪");
+    }
+
+    if (same(next, exit) && remaining.length === 0) {
+      setStatus("won");
+      setMessage("¡Lo lograste! Snoopy llegó a la casita. 🏠");
     } else if (same(next, exit)) {
-      if (remaining.length === 0) {
-        setStatus("won");
-        setMessage("¡Lo lograste! Snoopy llegó a la casita. 🏠");
-      } else {
-        setMessage(`¡Llegaste a la salida! Faltan ${remaining.length} galletas.`);
-      }
+      setMessage(`¡Llegaste a la salida! Faltan ${remaining.length} galletas.`);
+    } else if (remaining.length !== cookies.length) {
+      setMessage("¡Encontraste una galleta! 🍪");
     } else {
       setMessage("¡Sigue buscando las galletas!");
     }
@@ -232,7 +233,18 @@ export default function MazeDemo() {
           <button onClick={() => move(0, 1)} aria-label="Derecha">→</button>
         </div>
       </div>
-      {status === "won" && <div className="maze-win">¡Misión cumplida! Snoopy llegó a casa en {steps} pasos y {time}. 🎉</div>}
+      {status === "won" && (
+        <div className="maze-success-overlay" role="dialog" aria-modal="true" aria-labelledby="maze-success-title">
+          <div className="maze-success-card">
+            <span className="maze-success-icon" aria-hidden="true">🏆🐶</span>
+            <span className="eyebrow">¡AVENTURA COMPLETADA!</span>
+            <h3 id="maze-success-title">¡Lo lograste!</h3>
+            <p>Snoopy encontró todas las galletas y llegó a su casita. ¡Excelente trabajo!</p>
+            <div className="maze-success-stats"><span><b>{steps}</b><small>Pasos</small></span><span><b>{time}</b><small>Tiempo</small></span></div>
+            <button className="primary-button small" onClick={() => reset(level)}>Jugar otra vez</button>
+          </div>
+        </div>
+      )}
       <p className="maze-note">Usa las flechas o WASD en computadora, o los botones en pantalla desde tu celular. Las pistas se calculan con búsqueda BFS.</p>
     </div>
   );
