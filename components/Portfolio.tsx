@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import HotspotsDemo from "./HotspotsDemo";
 
 type Project = { id: string; icon: string; title: string; summary: string; detail: string; tools: string; };
 const projects: Project[] = [
@@ -91,6 +92,7 @@ export default function Portfolio() {
     {selected && <div className="modal-backdrop" role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)setSelected(null)}}><section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-title"><button className="modal-close" onClick={()=>setSelected(null)} aria-label="Cerrar">×</button><span className="eyebrow">PORTAFOLIO · PROYECTO</span><h2 id="project-title">{selected.title}</h2><p>{selected.detail}</p><p className="tools"><b>Tecnologías:</b> {selected.tools}</p>
       {selected.id==="reg" && <div className="mini-demo"><h3>Prueba la estimación lineal</h3><label>Horas de estudio (1–30)<input type="number" min="1" max="30" value={hours} onChange={e=>setHours(e.target.value)}/></label><button className="primary-button small" onClick={regression}>Calcular estimación</button>{regResult && <p className="demo-result">{regResult}</p>}</div>}
       {selected.id==="ai" && <div className="mini-demo"><h3>Prueba una clasificación ilustrativa</h3><div className="demo-fields">{([["hours","Horas de estudio (0–10)"],["attendance","Asistencia (%)"],["tasks","Tareas entregadas (%)"],["score","Nota de examen"]] as const).map(([key,label])=><label key={key}>{label}<input type="number" value={ai[key]} onChange={e=>setAi({...ai,[key]:e.target.value})}/></label>)}</div><button className="primary-button small" onClick={classify}>Clasificar ejemplo</button>{aiResult && <p className="demo-result">{aiResult}</p>}</div>}
+      {selected.id==="hot" && <HotspotsDemo />}
       <p className="modal-footnote">Esta ficha presenta el proyecto académico; los datos simulados son únicamente para aprendizaje.</p></section></div>}
   </>;
 }
