@@ -108,7 +108,6 @@ export default function MazeDemo() {
   const [hint, setHint] = useState<Position[]>([]);
   const [message, setMessage] = useState("Presiona «Comenzar» para entrar al laberinto.");
   const exit = useMemo(() => ({ row: level - 1, col: level - 1 }), [level]);
-  const collected = cookies.length === 0;
   const hintKeys = useMemo(() => new Set(hint.map(keyOf)), [hint]);
 
   const reset = useCallback((nextLevel: Level = level) => {
@@ -140,11 +139,9 @@ export default function MazeDemo() {
       setCookies(remaining);
     }
 
-    if (same(next, exit) && remaining.length === 0) {
+    if (same(next, exit)) {
       setStatus("won");
       setMessage("¡Lo lograste! Snoopy llegó a la casita. 🏠");
-    } else if (same(next, exit)) {
-      setMessage(`¡Llegaste a la salida! Faltan ${remaining.length} galletas.`);
     } else if (remaining.length !== cookies.length) {
       setMessage("¡Encontraste una galleta! 🍪");
     } else {
@@ -153,10 +150,9 @@ export default function MazeDemo() {
   }, [cookies, exit, grid, player, status]);
 
   const showHint = () => {
-    const targets = cookies.length ? cookies : [exit];
-    const path = findPath(grid, player, targets);
+    const path = findPath(grid, player, [exit]);
     setHint(path);
-    setMessage(path.length ? "Pista BFS: sigue las casillas resaltadas." : "No se encontró una ruta.");
+    setMessage(path.length ? "Pista BFS: sigue las casillas resaltadas hasta la casita." : "No se encontró una ruta.");
   };
 
   useEffect(() => {
@@ -187,7 +183,7 @@ export default function MazeDemo() {
   return (
     <div className="maze-demo">
       <div className="maze-top">
-        <div><span className="eyebrow">SNOOPY MAZE ADVENTURE</span><h3>¡Ayuda a Snoopy a encontrar la salida!</h3><p>Recoge todas las galletas 🍪 y llega a la casita 🏠.</p></div>
+        <div><span className="eyebrow">SNOOPY MAZE ADVENTURE</span><h3>¡Ayuda a Snoopy a encontrar la salida!</h3><p>Llega a la casita 🏠. Las galletas 🍪 son opcionales.</p></div>
         <span className="maze-snoopy" aria-hidden="true">🐶</span>
       </div>
       <div className="maze-toolbar">
@@ -218,7 +214,7 @@ export default function MazeDemo() {
       </div>
       <div className="maze-message" aria-live="polite">{message}</div>
       <div className="maze-actions">
-        <button className="primary-button small" onClick={() => { setStatus("playing"); setMessage("¡Vamos! Recoge todas las galletas."); }}>Comenzar</button>
+        <button className="primary-button small" onClick={() => { setStatus("playing"); setMessage("¡Vamos! Encuentra el camino hasta la casita."); }}>Comenzar</button>
         <button className="maze-secondary" onClick={showHint}>Pedir pista BFS</button>
         <button className="maze-secondary" onClick={() => reset(level)}>Reiniciar</button>
       </div>
@@ -239,7 +235,7 @@ export default function MazeDemo() {
             <span className="maze-success-icon" aria-hidden="true">🏆🐶</span>
             <span className="eyebrow">¡AVENTURA COMPLETADA!</span>
             <h3 id="maze-success-title">¡Lo lograste!</h3>
-            <p>Snoopy encontró todas las galletas y llegó a su casita. ¡Excelente trabajo!</p>
+            <p>Snoopy llegó a su casita. ¡Excelente trabajo! {cookies.length === 0 ? "¡También recogiste todas las galletas!" : `Dejaste ${cookies.length} galletas sin recoger, pero no eran necesarias.`}</p>
             <div className="maze-success-stats"><span><b>{steps}</b><small>Pasos</small></span><span><b>{time}</b><small>Tiempo</small></span></div>
             <button className="primary-button small" onClick={() => reset(level)}>Jugar otra vez</button>
           </div>
