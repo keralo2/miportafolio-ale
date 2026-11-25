@@ -1091,3 +1091,6 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
     align-self:center;
   }
 }
+
+/* Enlaces profesionales de la sección de contacto */
+.contact-links{display:grid;gap:12px;margin:20px 0}.contact-links a{display:grid;gap:5px;padding:13px 15px;border:1px solid #e8b6c5;border-radius:12px;background:#fff8fa;text-decoration:none;transition:transform .2s,border-color .2s}.contact-links a:hover{transform:translateY(-2px);border-color:#a85b78}.contact-links a span{font:12px Arial,sans-serif;color:#8b5265}.contact-links a strong{font:14px Arial,sans-serif;color:var(--wine);overflow-wrap:anywhere}
