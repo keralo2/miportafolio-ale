@@ -958,3 +958,23 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   .maze-modal > .project-info-grid{grid-template-columns:1fr;gap:12px}
   .maze-modal > .project-info-grid > .project-learning{grid-column:auto}
 }
+
+
+/* Dar aire entre la ficha descriptiva y la prueba de Snoopy Maze */
+.maze-modal > .tools{
+  margin-top:20px;
+  margin-bottom:28px;
+}
+.maze-modal > .maze-demo{
+  margin-top:24px;
+  margin-bottom:28px;
+}
+.maze-modal > .project-info-grid{
+  row-gap:18px;
+  margin-top:22px;
+  margin-bottom:18px;
+}
+@media(max-width:700px){
+  .maze-modal > .tools{margin-bottom:24px}
+  .maze-modal > .maze-demo{margin-top:22px;margin-bottom:26px}
+}
