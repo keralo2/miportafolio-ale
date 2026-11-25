@@ -41,8 +41,8 @@
 .maze-toolbar select{padding:9px 12px;border:1px solid #9e8067;border-radius:10px;background:white;color:#382b2b}
 .maze-stat{min-width:78px;background:#fff;border:1px solid #ddc7aa;border-radius:11px;padding:8px 12px;display:grid;gap:3px}
 .maze-stat small{font:11px Arial,sans-serif;color:#806b5a}.maze-stat b{font:700 18px Arial,sans-serif;color:#68152f}
-.maze-board-wrap{display:flex;justify-content:center;overflow:auto;padding:12px;background:#e8edf5;border:2px solid #493c36;border-radius:15px}
-.maze-board{display:grid;width:min(100%,650px);aspect-ratio:1;background:#fffdf5;touch-action:pan-y}
+.maze-board-wrap{display:flex;justify-content:center;overflow:hidden;width:100%;padding:8px;background:#e8edf5;border:2px solid #493c36;border-radius:15px}
+.maze-board{display:grid;width:min(100%,650px);max-width:100%;flex:0 1 650px;aspect-ratio:1;background:#fffdf5;touch-action:pan-y}
 .maze-cell{min-width:0;min-height:0;display:grid;place-items:center;background:#fffdf5;font-size:clamp(10px,2vw,22px);line-height:1}
 .maze-cell.hint{background:#ffe59b}
 .maze-message{margin:12px 0;padding:11px 14px;background:#fff;border:1px solid #ddc7aa;border-radius:11px;font:13px/1.5 Arial,sans-serif;color:#49342d}
@@ -55,7 +55,7 @@
 .maze-pad button:active{background:#f0c96d}
 .maze-win{margin-top:13px;padding:14px;border-radius:12px;background:#e4f2df;border:1px solid #8eb48b;color:#28542b;font:700 14px Arial,sans-serif}
 .maze-note{font:11px/1.5 Arial,sans-serif;color:#765563;margin:12px 0 0}
-@media(max-width:600px){.maze-demo{padding:11px}.maze-top{padding:12px}.maze-snoopy{font-size:38px}.maze-board{width:min(100%,520px)}.maze-cell{font-size:clamp(8px,2.5vw,15px)}.maze-controls{align-items:flex-start;flex-direction:column}.maze-pad{align-self:center}.maze-modal{padding:22px 12px}}
+@media(max-width:600px){.maze-demo{padding:11px}.maze-top{padding:12px}.maze-snoopy{font-size:38px}.maze-board{width:100%;max-width:520px;flex-basis:520px}.maze-cell{font-size:clamp(8px,2.5vw,15px)}.maze-controls{align-items:flex-start;flex-direction:column}.maze-pad{align-self:center}.maze-modal{padding:22px 12px}}
 
 
 /* Ventana de felicitación al completar Snoopy Maze */
