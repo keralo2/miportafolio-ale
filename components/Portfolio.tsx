@@ -73,7 +73,7 @@ export default function Portfolio() {
     <header className="site-header"><div className="nav-wrap">
       <a className="brand" href="#inicio">♡ Mi Portafolio Digital</a>
       <button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Abrir menú">☰</button>
-      <nav className={menuOpen?"nav-links open":"nav-links"}>{[["Inicio","#inicio"],["Sobre mí","#sobre-mi"],["Formación","#formacion"],["Proyectos","#proyectos"],["Contacto","#contacto"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}</nav>
+      <nav className={menuOpen?"nav-links open":"nav-links"}>{[["Inicio","#inicio"],["Sobre mí","#sobre-mi"],["Formación","#formacion"],["Experiencia","#experiencia"],["Proyectos","#proyectos"],["Contacto","#contacto"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}</nav>
     </div></header>
 
     <main>
@@ -99,6 +99,11 @@ export default function Portfolio() {
         <article className="paper-card education-card"><span className="status">Finalizado · 2026</span><h3>Bachillerato</h3><p>Complejo Educativo Capitán General Gerardo Barrios.</p></article>
         <article className="paper-card education-card"><span className="status">En proceso de finalización</span><h3>Diplomado ¡Supérate!</h3><p>Fundación Frech · Inglés, Informática y Valores · 2026.</p></article>
         <article className="paper-card education-card"><span className="status">Meta para 2027</span><h3>Técnico en Guía de Turismo Bilingüe</h3><p>Universidad Don Bosco · objetivo académico futuro.</p></article>
+      </div></div></section>
+
+      <section className="section experience-section" id="experiencia"><div className="container"><h2 className="section-title">Experiencia</h2><p className="section-subtitle">Aprendizajes y proyectos que me han permitido desarrollar mis conocimientos y habilidades.</p><div className="experience-grid">
+        <article className="paper-card experience-card"><span className="status">2026 · Formación académica</span><h3>¡Supérate! Fundación Frech</h3><h4>Participante del programa de formación integral</h4><p>Formación en las áreas de Inglés, Informática y Valores. Participación en actividades prácticas, presentaciones y trabajos colaborativos que han fortalecido mis habilidades de organización, comunicación, expresión y trabajo en equipo.</p></article>
+        <article className="paper-card experience-card"><span className="status">2026 · Proyectos académicos</span><h3>Python, Machine Learning y desarrollo web</h3><h4>Desarrollo de algoritmos, análisis de datos y aplicaciones web</h4><p>Desarrollo de ejercicios y proyectos académicos con Python, incluyendo regresión lineal, resolución de laberintos mediante búsqueda BFS, agrupamiento con K-Means, clasificación con KNN y análisis geoespacial de zonas comerciales en Chalatenango. También trabajé en la creación de este portafolio con Next.js, React y TypeScript, e implementé una API para el formulario de contacto.</p></article>
       </div></div></section>
 
       <section className="section"><div className="container"><h2 className="section-title">Mis habilidades</h2><p className="section-subtitle">Conocimientos y cualidades que sigo desarrollando.</p><div className="skills-grid"><div className="paper-card"><h3>Conocimientos técnicos</h3><ul><li>Inglés en formación</li><li>Informática y herramientas digitales</li><li>Fundamentos de programación</li><li>Organización y análisis de información</li></ul></div><div className="paper-card"><h3>Habilidades personales</h3><ul><li>Responsabilidad y compromiso</li><li>Empatía y respeto</li><li>Trabajo en equipo</li><li>Comunicación y perseverancia</li><li>Disposición para aprender</li></ul></div></div></div></section>
