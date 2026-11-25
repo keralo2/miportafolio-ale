@@ -443,3 +443,107 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   .maze-modal .maze-controls{padding:3px 6px}
   .maze-modal .maze-pad{grid-template-rows:repeat(2,22px);grid-template-columns:repeat(3,27px)}
 }
+
+
+/* Ajuste de jugabilidad móvil: tablero legible y controles táctiles amplios */
+@media(max-width:700px){
+  .modal-backdrop.maze-backdrop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:0;
+    -webkit-overflow-scrolling:touch;
+  }
+  .maze-modal{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:auto;
+    min-height:100dvh;
+    max-height:none;
+    overflow:visible;
+    border-radius:0;
+    padding:12px 10px max(18px,env(safe-area-inset-bottom));
+    gap:8px;
+  }
+  .maze-modal > .eyebrow{font-size:10px}
+  .maze-modal > h2{font-size:21px;margin:4px 44px 4px 0}
+  .maze-modal > .maze-demo{
+    display:flex;
+    flex-direction:column;
+    flex:0 0 auto;
+    min-height:0;
+    overflow:visible;
+    gap:10px;
+    padding:10px;
+    margin:0;
+  }
+  .maze-modal .maze-top{padding:10px}
+  .maze-modal .maze-top h3{font-size:17px}
+  .maze-modal .maze-top p{font-size:12px;line-height:1.45}
+  .maze-modal .maze-snoopy{font-size:34px}
+  .maze-modal .maze-toolbar{display:flex;flex-wrap:wrap;gap:7px;margin:0}
+  .maze-modal .maze-toolbar label{font-size:12px;gap:5px}
+  .maze-modal .maze-toolbar select{font-size:14px;padding:9px 10px;min-height:42px}
+  .maze-modal .maze-stat{min-width:58px;flex:1;padding:7px 8px}
+  .maze-modal .maze-stat small{font-size:10px}
+  .maze-modal .maze-stat b{font-size:15px}
+  .maze-modal .maze-board-wrap{
+    display:flex;
+    width:100%;
+    height:auto;
+    min-height:0;
+    padding:5px;
+    overflow:hidden;
+  }
+  .maze-modal .maze-board{
+    width:min(100%, calc(100vw - 54px), 520px);
+    max-width:100%;
+    height:auto;
+    max-height:none;
+    flex:0 1 auto;
+    aspect-ratio:1;
+    touch-action:manipulation;
+  }
+  .maze-modal .maze-cell{font-size:clamp(8px,2.6vw,15px)}
+  .maze-modal .maze-message{font-size:12px;line-height:1.5;padding:9px 10px}
+  .maze-modal .maze-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .maze-modal .maze-actions .primary-button,
+  .maze-modal .maze-secondary{min-height:42px;padding:10px 13px;font-size:12px}
+  .maze-modal .maze-controls{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:0;
+    padding:12px;
+    font-size:13px;
+  }
+  .maze-modal .maze-pad{
+    align-self:center;
+    grid-template-columns:repeat(3, minmax(52px, 64px));
+    grid-template-rows:repeat(2, 52px);
+    gap:6px;
+  }
+  .maze-modal .maze-pad button{
+    min-width:52px;
+    min-height:52px;
+    padding:0;
+    font-size:26px;
+    border-radius:12px;
+    touch-action:manipulation;
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  .maze-modal .maze-note{display:block;font-size:11px;line-height:1.5;margin:0}
+}
+@media(max-width:380px){
+  .maze-modal .maze-pad{
+    grid-template-columns:repeat(3, 54px);
+    grid-template-rows:repeat(2, 50px);
+  }
+  .maze-modal .maze-board{width:min(100%, calc(100vw - 42px), 480px)}
+}
