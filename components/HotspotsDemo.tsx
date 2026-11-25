@@ -25,6 +25,16 @@ export default function HotspotsDemo(){
  return <div className="hot-demo">
   <div className="hot-demo-heading"><div><span className="eyebrow">LABORATORIO INTERACTIVO</span><h3>Hotspots Comerciales</h3><p>Explora cómo se agrupan puntos geográficos y prueba una clasificación KNN.</p></div><span className="hot-demo-chip">✦ Demo interactiva</span></div>
   <div className="hot-demo-tabs"><button className={tab==="map"?"active":""} onClick={()=>setTab("map")}>▥ K-Means · Agrupamiento</button><button className={tab==="knn"?"active":""} onClick={()=>setTab("knn")}>◎ KNN · Clasificación</button></div>
+  <div className="hot-real-map-card">
+   <div className="hot-real-map-heading"><strong>Mapa geográfico de referencia</strong><span>OpenStreetMap · Chalatenango</span></div>
+   <iframe
+    title="Mapa de OpenStreetMap de Chalatenango, El Salvador"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-89.02%2C14.08%2C-88.85%2C14.22&layer=mapnik&marker=14.143%2C-88.938"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+   />
+   <p>Mapa base real sin API key. El marcador señala la coordenada de referencia del ejercicio; los puntos de la demostración K-Means que aparece abajo son sintéticos, no comercios verificados.</p>
+  </div>
   <div className="hot-demo-layout">
    <aside className="hot-controls"><h4>⌘ Configurar K-Means</h4><p>Selecciona la cantidad de grupos:</p><div className="hot-k-options">{[2,3,4,5].map(value=><button key={value} className={k===value?"chosen":""} onClick={()=>setK(value)} aria-pressed={k===value}>{value}</button>)}</div>
     <div className="hot-counts">{groupCounts.map((count,i)=><div key={i}><i style={{background:palette[i]}}/>Grupo {i+1}<b>{count}</b></div>)}</div>
