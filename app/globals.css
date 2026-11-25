@@ -821,3 +821,30 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
 @media(min-width:701px){
   .maze-modal > .project-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+
+/* Separar la prueba del contenido explicativo de Snoopy Maze */
+.maze-modal > .maze-demo{
+  order:1;
+  margin:18px 0 34px;
+}
+.maze-modal > .maze-details-title{
+  order:2;
+  border-top:2px solid #e8cbd3;
+  padding-top:28px;
+  margin:0 0 8px;
+  font-size:21px;
+}
+.maze-modal > .project-info-grid{
+  order:3;
+  margin:0 0 18px;
+  gap:16px;
+}
+.maze-modal > .tools{
+  order:4;
+  margin:0 0 16px;
+}
+.maze-modal > .modal-footnote{
+  order:5;
+  margin-top:8px;
+}
