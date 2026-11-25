@@ -41,15 +41,32 @@ export default function Portfolio() {
     setAiResult(`${score>=60?"Aprobación":"Reprobación"} estimada · índice didáctico ${score.toFixed(1)}/100. Regla simplificada, no es una ejecución del modelo KNN original.`);
   };
   const onContact = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); setSending(true); setNotice(""); setNoticeError(false);
-    const form = new FormData(event.currentTarget);
+    event.preventDefault();
+    const formElement = event.currentTarget;
+    setSending(true);
+    setNotice("");
+    setNoticeError(false);
+    const form = new FormData(formElement);
     try {
-      const response = await fetch("/api/contact", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({name:form.get("name"),email:form.get("email"),message:form.get("message")}) });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          email: form.get("email"),
+          message: form.get("message"),
+        }),
+      });
       const data = await response.json();
-      setNotice(data.message); setNoticeError(!response.ok);
-      if (response.ok) event.currentTarget.reset();
-    } catch { setNotice("No se pudo conectar. Inténtalo de nuevo."); setNoticeError(true); }
-    finally { setSending(false); }
+      setNotice(data.message || (response.ok ? "Mensaje enviado." : "No se pudo enviar el mensaje."));
+      setNoticeError(!response.ok);
+      if (response.ok) formElement.reset();
+    } catch {
+      setNotice("No se pudo conectar. Inténtalo de nuevo.");
+      setNoticeError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return <>
