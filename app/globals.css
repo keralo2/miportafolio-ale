@@ -56,3 +56,17 @@
 .maze-win{margin-top:13px;padding:14px;border-radius:12px;background:#e4f2df;border:1px solid #8eb48b;color:#28542b;font:700 14px Arial,sans-serif}
 .maze-note{font:11px/1.5 Arial,sans-serif;color:#765563;margin:12px 0 0}
 @media(max-width:600px){.maze-demo{padding:11px}.maze-top{padding:12px}.maze-snoopy{font-size:38px}.maze-board{width:min(100%,520px)}.maze-cell{font-size:clamp(8px,2.5vw,15px)}.maze-controls{align-items:flex-start;flex-direction:column}.maze-pad{align-self:center}.maze-modal{padding:22px 12px}}
+
+
+/* Ventana de felicitación al completar Snoopy Maze */
+.maze-demo{position:relative}
+.maze-success-overlay{position:absolute;inset:0;z-index:20;display:grid;place-items:center;padding:18px;background:rgba(48,31,37,.58);border-radius:20px;backdrop-filter:blur(3px)}
+.maze-success-card{width:min(100%,390px);padding:25px 22px;text-align:center;background:#fff9ed;border:3px solid #e5c18c;border-radius:22px;box-shadow:0 18px 55px rgba(35,20,20,.28);animation:maze-pop-in .22s ease-out}
+.maze-success-icon{display:block;font-size:48px;margin-bottom:8px}
+.maze-success-card h3{margin:7px 0;color:#68152f;font-size:30px}
+.maze-success-card p{margin:8px auto 15px;max-width:290px;color:#604d48;font:14px/1.55 Arial,sans-serif}
+.maze-success-stats{display:flex;justify-content:center;gap:12px;margin:14px 0 18px}
+.maze-success-stats span{display:grid;gap:3px;min-width:92px;padding:10px;border:1px solid #e5cda9;border-radius:12px;background:white}
+.maze-success-stats b{font:700 21px Arial,sans-serif;color:#68152f}
+.maze-success-stats small{font:11px Arial,sans-serif;color:#806b5a}
+@keyframes maze-pop-in{from{opacity:0;transform:scale(.94) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
