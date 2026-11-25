@@ -1083,3 +1083,11 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   .maze-modal > .tools{margin-bottom:24px}
   .maze-modal > .maze-demo{padding:12px;margin-bottom:18px}
 }
+
+
+/* Centrar los botones "Ver proyecto" en las tarjetas en pantallas de laptop */
+@media(min-width:701px){
+  .project-card .primary-button{
+    align-self:center;
+  }
+}
