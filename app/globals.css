@@ -848,3 +848,55 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   order:5;
   margin-top:8px;
 }
+
+
+/* Snoopy Maze: descripción arriba y prueba debajo, como las demás fichas */
+.maze-modal > .maze-details-title{
+  order:0;
+  display:block;
+  margin:18px 0 10px;
+  padding:0;
+  border:0;
+  color:#68152f;
+  font-size:22px;
+  line-height:1.35;
+}
+.maze-modal > .project-info-grid{
+  order:1;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin:0 0 14px;
+}
+.maze-modal > .project-info-grid .project-info{
+  padding:18px;
+  border-radius:14px;
+}
+.maze-modal > .project-info-grid .project-info h3{
+  font-size:16px;
+  line-height:1.4;
+  margin-bottom:9px;
+}
+.maze-modal > .project-info-grid .project-info p{
+  font-size:14px;
+  line-height:1.7;
+}
+.maze-modal > .project-info-grid .project-learning{grid-column:1/-1}
+.maze-modal > .tools{
+  order:2;
+  display:block;
+  margin:0 0 22px;
+  font-size:14px;
+  line-height:1.7;
+}
+.maze-modal > .maze-demo{
+  order:3;
+  margin:10px 0 20px;
+}
+.maze-modal > .modal-footnote{order:4}
+@media(max-width:700px){
+  .maze-modal > .project-info-grid{grid-template-columns:1fr;gap:12px}
+  .maze-modal > .project-info-grid .project-learning{grid-column:auto}
+  .maze-modal > .project-info-grid .project-info{padding:16px}
+  .maze-modal > .project-info-grid .project-info p{font-size:14px}
+}
