@@ -900,3 +900,61 @@ h1,h2,h3,h4{line-height:1.25;text-wrap:pretty}
   .maze-modal > .project-info-grid .project-info{padding:16px}
   .maze-modal > .project-info-grid .project-info p{font-size:14px}
 }
+
+
+/* Igualar Snoopy Maze al estilo general de las fichas de proyectos */
+.maze-modal > .project-info-grid{
+  order:1;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:16px;
+  margin:22px 0;
+  padding:0;
+}
+.maze-modal > .project-info-grid > .project-info{
+  min-width:0;
+  padding:20px;
+  background:#fff;
+  border:1px solid #efd6de;
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(88,24,49,.045);
+}
+.maze-modal > .project-info-grid > .project-info h3{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#68152f;
+  font:700 16px/1.35 Arial,sans-serif;
+  margin:0 0 12px;
+  padding-bottom:9px;
+  border-bottom:1px solid #f2dfe5;
+}
+.maze-modal > .project-info-grid > .project-info p{
+  color:#59404a;
+  font:14px/1.8 Arial,sans-serif;
+  margin:0;
+  overflow-wrap:anywhere;
+}
+.maze-modal > .project-info-grid > .project-learning{
+  grid-column:1/-1;
+  background:#fff4f7;
+  border-color:#eac5d1;
+}
+.maze-modal > .tools{
+  order:2;
+  display:block;
+  margin:18px 0 0;
+  padding:12px;
+  color:#653044;
+  font:13px/1.8 Arial,sans-serif;
+}
+.maze-modal > .maze-demo{
+  order:3;
+  margin:22px 0 8px;
+}
+.maze-modal > .modal-footnote{order:4}
+@media(max-width:700px){
+  .maze-modal > .project-info-grid{grid-template-columns:1fr;gap:12px}
+  .maze-modal > .project-info-grid > .project-learning{grid-column:auto}
+}
