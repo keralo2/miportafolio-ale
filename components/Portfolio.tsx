@@ -165,6 +165,24 @@ export default function Portfolio() {
 
       <section className="section contact-section" id="contacto"><div className="container"><h2 className="section-title">Contacto</h2><p className="section-subtitle">Gracias por visitar mi portafolio. Puedes dejarme un mensaje.</p><div className="contact-grid"><div className="paper-card"><h3>¡Hablemos!</h3><p>Me interesa seguir aprendiendo, compartir mis proyectos y conocer nuevas oportunidades académicas.</p><p className="contact-quote">“Con esfuerzo, dedicación y pasión, todo es posible”.</p></div><form className="paper-card contact-form" onSubmit={onContact}><label>Nombre<input name="name" required placeholder="Tu nombre"/></label><label>Correo electrónico<input name="email" type="email" required placeholder="correo@ejemplo.com"/></label><label>Mensaje<textarea name="message" required rows={4} placeholder="Escribe tu mensaje"/></label><button className="primary-button" disabled={sending}>{sending?"Enviando…":"Enviar mensaje →"}</button><p className={noticeError?"form-notice error":"form-notice"} aria-live="polite">{notice || "Será un gusto leerte. ¡Déjame tu mensaje y estaré encantada de responderte! ♡"}</p></form></div></div></section>
     </main>
+
+      <section className="section share-section" id="compartir">
+        <div className="container">
+          <div className="share-card">
+            <div className="share-copy">
+              <span className="eyebrow">COMPARTE MI CAMINO</span>
+              <h2>Mi portafolio, a un escaneo de distancia</h2>
+              <p>Escanea el código QR para visitar mi portafolio digital desde tu celular y conocer mi formación, mis proyectos y mis aprendizajes.</p>
+              <a className="primary-button" href="https://miportafolio-ale.vercel.app" target="_blank" rel="noreferrer">Visitar portafolio ↗</a>
+            </div>
+            <div className="share-qr-wrap">
+              <img className="share-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=8&data=https%3A%2F%2Fmiportafolio-ale.vercel.app" alt="Código QR para visitar el portafolio digital" loading="lazy" />
+              <span>Escanéame ♡</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
     <footer><div className="footer-inner"><p className="footer-quote">“Con esfuerzo, dedicación y pasión, todo es posible.” ♡</p><p>Keyli Alejandra Arévalo Paz · Portafolio Digital · 2026</p></div></footer>
 
     {selected && <div className="modal-backdrop" role="presentation" onMouseDown={e=>{if(e.target===e.currentTarget)setSelected(null)}}><section className={selected.id==="maze" ? "project-modal maze-modal" : "project-modal"} role="dialog" aria-modal="true" aria-labelledby="project-title"><button className="modal-close" onClick={()=>setSelected(null)} aria-label="Cerrar">×</button><span className="eyebrow">PORTAFOLIO · PROYECTO</span><h2 id="project-title">{selected.title}</h2><div className="project-info-grid">
